@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gửi cậu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Be+Vietnam+Pro:wght@400;500&family=Dancing+Script:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Chữ trong trang được lấy từ noi-dung.js. Sửa chữ ở file đó, không cần sửa file này. -->
+<div id="app">
+  <section class="scene on" id="s1" aria-label="Bật đèn">
+    <div class="warm"></div>
+    <canvas id="lights" aria-hidden="true"></canvas>
+    <div class="cord" id="cord" role="button" tabindex="0" aria-label="Kéo dây bật đèn">
+      <div class="cord-line" id="cordLine"></div>
+      <div class="cord-knob"></div>
+    </div>
+    <div class="s1text">
+      <h1 data-text="tieuDeDen"></h1>
+      <p class="sub" id="s1hint"></p>
+    </div>
+  </section>
+
+  <section class="scene" id="s2" aria-label="Lọ sao giấy">
+    <h2 data-text="tieuDeLo"></h2>
+    <p class="sub" data-text="huongDanLo"></p>
+    <div class="jar-area">
+      <div class="jar tilt" id="jar" role="button" tabindex="0" aria-label="Lấy một ngôi sao trong lọ">
+        <div class="lid" id="lid"></div>
+        <div class="neck"></div>
+        <div class="glass" id="glass"><div class="shine"></div></div>
+      </div>
+      <div class="note" id="note" aria-live="polite">
+        <div class="note-n" id="noteN"></div>
+        <p id="noteText"></p>
+      </div>
+    </div>
+    <div class="collected" id="collected" aria-hidden="true"></div>
+    <button class="btn hide" id="b2">Xem tiếp</button>
+  </section>
+
+  <section class="scene" id="s3" aria-label="Cuộn phim kỷ niệm">
+    <h2 data-text="tieuDeCuonPhim"></h2>
+    <div class="filmnav">
+      <button class="arrow" id="prevF" aria-label="Tấm trước">‹</button>
+      <div class="count" id="cnt"></div>
+      <button class="arrow" id="nextF" aria-label="Tấm sau">›</button>
+    </div>
+    <div class="strip" id="strip" tabindex="0"></div>
+    <p class="sub">Vuốt, kéo hoặc bấm mũi tên để xem cuộn phim</p>
+    <button class="btn hide" id="b3">Còn một điều nữa</button>
+  </section>
+
+  <section class="scene" id="s4" aria-label="Mở khoá">
+    <h2 data-text="tieuDeKhoa"></h2>
+    <p class="sub" data-text="cauHoiKhoa"></p>
+    <form id="lock" class="pins" autocomplete="off">
+      <input id="p1" inputmode="numeric" maxlength="1" aria-label="Chữ số 1">
+      <input id="p2" inputmode="numeric" maxlength="1" aria-label="Chữ số 2">
+      <input id="p3" inputmode="numeric" maxlength="1" aria-label="Chữ số 3">
+      <input id="p4" inputmode="numeric" maxlength="1" aria-label="Chữ số 4">
+    </form>
+    <p id="err" role="alert"></p>
+    <p class="sub" style="opacity:.5" data-text="goiYKhoa"></p>
+  </section>
+
+  <section class="scene" id="s5" aria-label="Phong bì">
+    <h2 data-text="tieuDePhongBi"></h2>
+    <div class="env tilt" id="env" role="button" tabindex="0" aria-label="Mở phong bì">
+      <div class="back"></div>
+      <div class="letter" id="envLetter"></div>
+      <div class="front"></div>
+      <div class="flap"></div>
+      <div class="seal" data-text="kyTenConDau"></div>
+    </div>
+    <p class="sub">Chạm vào con dấu để mở</p>
+  </section>
+
+  <section class="scene" id="s6" aria-label="Lá thư">
+    <p id="tw"></p>
+    <button class="btn hide" id="b6" data-text="nutSauThu"></button>
+  </section>
+
+  <section class="scene" id="s7" aria-label="Câu hỏi">
+    <canvas id="confetti"></canvas>
+    <h1 id="q" style="position:relative" data-text="cauHoi"></h1>
+    <div class="answers" id="ans">
+      <button class="btn solid yes" id="yes1"></button>
+      <button class="btn yes" id="yes2"></button>
+    </div>
+    <svg id="sig" viewBox="0 0 320 90" hidden><text x="160" y="66" text-anchor="middle" id="sigText"></text></svg>
+    <p class="sub hide" id="end" data-text="loiKet"></p>
+    <button class="btn hide" id="again" style="position:relative">Xem lại từ đầu</button>
+  </section>
+
+  <div id="curtain" role="button" tabindex="0" aria-label="Kéo màn">
+    <div class="spot"></div>
+    <div class="cur l"></div><div class="cur r"></div>
+    <div class="valance"></div>
+    <div class="greet">
+      <div class="hello" data-text="loiChao"></div>
+      <p class="sub" data-text="loiMoi"></p>
+      <button class="btn" id="openBtn" style="color:var(--gold)" data-text="nutKeoMan"></button>
+    </div>
+  </div>
+  <canvas id="ambient"></canvas>
+  <canvas id="fx"></canvas>
+  <button id="mute" aria-label="Tắt âm thanh">♪</button>
+  <div id="dots"></div>
+</div>
+
+<script src="noi-dung.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
